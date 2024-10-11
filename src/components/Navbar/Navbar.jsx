@@ -4,7 +4,7 @@ import { Paths } from "../../router/Paths";
 export const Navbar = () => {
   const navMenu = [
     {
-      path: Paths.songs,
+      path: Paths.home,
       text: "Home",
     },
   ];

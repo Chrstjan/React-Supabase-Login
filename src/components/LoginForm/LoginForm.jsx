@@ -23,7 +23,7 @@ export const LoginForm = ({ user, setUser }) => {
   };
 
   if (user) {
-    return <Navigate to="/songs" />;
+    return <Navigate to="/" />;
   }
 
   return (

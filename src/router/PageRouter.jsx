@@ -40,8 +40,16 @@ export const PageRouter = () => {
 
   return (
     <Routes>
-      <Route path={Paths.home} element={<MainLayout />}>
-        <Route index element={<LandingPage user={user} setUser={setUser} />} />
+      <Route
+        path={Paths.home}
+        element={<MainLayout user={user} setUser={setUser} />}
+      >
+        <Route
+          index
+          element={
+            user ? <SongsPage /> : <LandingPage user={user} setUser={setUser} />
+          }
+        />
         <Route
           path={Paths.login}
           element={<LoginPage user={user} setUser={setUser} />}

@@ -9,13 +9,9 @@ export const LandingPage = ({ user, setUser }) => {
   // console.log(supabase);
   // console.log("Login data:", loginData);
 
-  // if (user) {
-  //   return <Navigate to="/songs" />;
-  // }
-
   return (
     <div>
-      <SignUpForm />
+      <SignUpForm user={user} setUser={setUser} />
     </div>
   );
 };

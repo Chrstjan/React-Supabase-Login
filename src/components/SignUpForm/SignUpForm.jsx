@@ -3,7 +3,7 @@ import { supabase } from "../../../supabaseClient";
 import style from "./SignUpForm.module.scss";
 import { Link } from "react-router-dom";
 
-export const SignUpForm = () => {
+export const SignUpForm = ({ user, setUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -15,6 +15,8 @@ export const SignUpForm = () => {
       console.error(error.message);
     } else {
       console.log("Signed up", data);
+      setUser(data);
+      //User must verify email before their account get's created
     }
   };
 
