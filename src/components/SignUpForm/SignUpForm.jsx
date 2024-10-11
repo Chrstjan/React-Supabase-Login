@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { supabase } from "../../../supabaseClient";
 import style from "./SignUpForm.module.scss";
+import { Link } from "react-router-dom";
 
 export const SignUpForm = () => {
   const [email, setEmail] = useState("");
@@ -19,7 +20,12 @@ export const SignUpForm = () => {
 
   return (
     <form className={style.formStyling} onSubmit={(e) => handleSignUp(e)}>
-      <h2>Sign Up</h2>
+      <header>
+        <h2>Sign Up</h2>
+        <span>
+          Already have an Account? <Link to="/login">Login</Link>
+        </span>
+      </header>
       <fieldset>
         <label htmlFor="email">Email:</label>
         <input

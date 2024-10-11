@@ -1,11 +1,11 @@
 import { useState } from "react";
+import { Link, Navigate } from "react-router-dom";
 import { supabase } from "../../../supabaseClient";
 import style from "./LoginForm.module.scss";
 
-export const LoginForm = () => {
+export const LoginForm = ({ user, setUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [user, setUser] = useState();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -22,21 +22,14 @@ export const LoginForm = () => {
     }
   };
 
-  const handleSignOut = async () => {
-    const { error } = await supabase.auth.signOut();
+  if (user) {
+    return <Navigate to="/songs" />;
+  }
 
-    if (error) {
-      console.error(error.message);
-    } else {
-      console.log("User logged out");
-      setUser(null);
-      console.log(user);
-    }
-  };
   return (
     <>
       <form className={style.formStyling} onSubmit={(e) => handleLogin(e)}>
-        <h2>Log in</h2>
+        <h2>Login</h2>
         <fieldset>
           <label htmlFor="email">Email:</label>
           <input
@@ -56,8 +49,10 @@ export const LoginForm = () => {
           />
         </fieldset>
         <input type="submit" value="Login" />
+        <span>
+          Don't have an Account? <Link to="/">Sign Up</Link>
+        </span>
       </form>
-      {user ? <button onClick={() => handleSignOut()}>Sign out</button> : null}
     </>
   );
 };

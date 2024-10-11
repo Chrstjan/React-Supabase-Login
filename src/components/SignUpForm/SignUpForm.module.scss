@@ -5,13 +5,38 @@
   align-items: center;
   gap: 1rem;
   border: 2px solid #000;
-  width: 20rem;
+  margin: 1rem 1.5rem;
+  background: #eee;
+  padding-bottom: 1rem;
+
+  header {
+    text-align: center;
+
+    a {
+      color: darkgoldenrod;
+      font-size: 17px;
+    }
+  }
 
   fieldset {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 1rem;
     border: 0;
+  }
+
+  input[type="submit"] {
+    border: 0;
+    background: green;
+    color: #fff;
+    padding: 0.5rem 2rem;
+    border-radius: 12px;
+
+    &:hover {
+      scale: 1.1;
+      cursor: pointer;
+    }
   }
 }

@@ -1,9 +1,9 @@
 import { LoginForm } from "../components/LoginForm/LoginForm";
 
-export const LoginPage = () => {
+export const LoginPage = ({ user, setUser }) => {
   return (
     <div>
-      <LoginForm />
+      <LoginForm user={user} setUser={setUser} />
     </div>
   );
 };
