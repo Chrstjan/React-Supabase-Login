@@ -29,16 +29,14 @@ export const SongsPage = ({ user }) => {
       <h2>Songs</h2>
       {songs?.map((item) => {
         return (
-          <>
-            <div key={item.id}>
-              <h4>{item.title}</h4>
-              <p>{item.content}</p>
-            </div>
-            <button onClick={() => handleModal()}>Create song</button>
-            {isModalOpen ? <CreateForm userId={user} /> : null}
-          </>
+          <div key={item.id}>
+            <h4>{item.title}</h4>
+            <p>{item.content}</p>
+          </div>
         );
       })}
+      <button onClick={() => handleModal()}>Create song</button>
+      {isModalOpen ? <CreateForm userId={user} /> : null}
     </>
   );
 };
