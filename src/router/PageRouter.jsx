@@ -47,7 +47,11 @@ export const PageRouter = () => {
         <Route
           index
           element={
-            user ? <SongsPage /> : <LandingPage user={user} setUser={setUser} />
+            user ? (
+              <SongsPage user={user} />
+            ) : (
+              <LandingPage user={user} setUser={setUser} />
+            )
           }
         />
         <Route
